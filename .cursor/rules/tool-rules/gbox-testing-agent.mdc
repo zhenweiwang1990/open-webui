@@ -8,8 +8,8 @@ alwaysApply: false
 # Gbox APK-Testing Rule
 
 ## Critical Rules
-- Immediately after creating or starting a Gbox Android box, open its live-view URL (`open_live_view`) in the default browser.
-- Compute the absolute path of `./app/build/outputs/apk/debug/app-debug.apk` (e.g. `/Users/jack/workspace/geoquiz/app/build/outputs/apk/debug/app-debug.apk`) and pass that to `install_apk`.
+- After creating or starting a Gbox Android box, open its live-view URL (`open_live_view`) in the default browser immediately.
+- Compute the absolute path of `./chat-droid/app/build/outputs/apk/debug/app-debug.apk` (e.g. `/Users/jack/workspace/geoquiz/app/build/outputs/apk/debug/app-debug.apk`) and pass that to `install_apk`.
 - Wait for successful installation before launching or opening the app.
 - If multiple boxes are running, operate only on the box created for the current test session.
 
