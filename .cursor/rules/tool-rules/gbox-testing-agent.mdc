@@ -1,5 +1,5 @@
 ---
-description: Test the Android project on a virtual or physical device.
+description: Test Android App on gbox
 globs: 
 alwaysApply: false
 ---
@@ -10,19 +10,27 @@ alwaysApply: false
 ## Critical Rules
 - After creating or starting a Gbox Android box, open its live-view URL (`open_live_view`) in the default browser immediately.
 - Compute the absolute path of `./chat-droid/app/build/outputs/apk/debug/app-debug.apk` (e.g. `/Users/jack/workspace/geoquiz/app/build/outputs/apk/debug/app-debug.apk`) and pass that to `install_apk`.
-- Wait for successful installation before launching or opening the app.
+- After installation & opening, wait for 2 seconds to get a screenshot.
 - If multiple boxes are running, operate only on the box created for the current test session.
+- Use MCP Tool adb_shell to execute adb shell in log watching or other infomation obtaining.
+- Use MCP Tool logcat to get the log of the app.
+- Do not try to exec adb command in Terminal, because the Android box is running on cloud, there is no adb connection locally.
+Tips:
+
+- You can give an instruction and a background of the task to perform ui actions(by calling ui_action MCP tool).
+- If you see the keyboard on the bottom of the screen, that means the field you should type is already focused. You should type directly no need to focus on the field.
+
 
 ## Examples
 <example>
 ✅ Correct Flow
 1. Create Android box → obtain `boxId`.
 2. Open live-view for `boxId`.
-3. Install APK with absolute path `/abs/path/to/repo/geoquiz/app/build/outputs/apk/debug/app-debug.apk`.
-4. Launch the app.
-5. Use the ai_action tool to perform UI actions.
+3. Install APK with absolute path `/abs/path/to/repo/geoquiz/app/build/outputs/apk/debug/app-debug.apk`, with the open parameter to be true to launch the app.
+4. Get a screenshot to make decision.
+5. Use the ui_action tool to perform UI actions. Like "tap the email input,scroll up" etc.
 6. Keep reviewing the screenshots after the operation to determine if it is as expected.
-7. Keep action-review loop until all test done.
+7. Keep ui_action-review loop until all test done.
 </example>
 
 <example type="invalid">
