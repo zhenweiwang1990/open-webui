@@ -55,6 +55,11 @@ class HomeFragment : Fragment() {
         )
         binding.rvChats.layoutManager = LinearLayoutManager(requireContext())
         binding.rvChats.adapter = adapter
+        
+        // Setup pull-to-refresh
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            homeViewModel.refreshChats()
+        }
     }
 
     private fun setupObservers() {
@@ -74,6 +79,7 @@ class HomeFragment : Fragment() {
 
         homeViewModel.loading.observe(viewLifecycleOwner) { isLoading ->
             Log.d("HomeFragment", "Loading state: $isLoading")
+            binding.swipeRefreshLayout.isRefreshing = isLoading
             if (isLoading) {
                 updateEmptyState(true, true, null)
             }
@@ -81,9 +87,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupFab() {
-        // Add floating action button for creating new chat
-        // Note: We'll need to add this to the layout if it doesn't exist
-        // For now, let's just add a refresh capability through pull-to-refresh or similar
+        binding.fabNewChat.setOnClickListener {
+            Log.d("HomeFragment", "FAB clicked - creating new chat")
+            homeViewModel.createNewChat()
+        }
     }
 
     private fun showChatOptionsDialog(chat: ChatTitleIdResponse) {

@@ -4,6 +4,20 @@
 
     <!-- Internet permission for API calls -->
     <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- Audio recording for speech-to-text -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    
+    <!-- Storage permissions for file uploads -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" 
+        android:maxSdkVersion="28" />
+    
+    <!-- Camera permission for image capture -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    
+    <!-- Notification permission for Android 13+ -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name="ai.gbox.chatdroid.ChatDroidApp"
