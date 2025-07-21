@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import ai.gbox.chatdroid.databinding.ItemMessageBinding
+import ai.gbox.chatdroid.ui.utils.MarkdownRenderer
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -32,7 +33,8 @@ class MessageAdapter : RecyclerView.Adapter<MessageAdapter.MessageViewHolder>() 
     class MessageViewHolder(private val binding: ItemMessageBinding) : RecyclerView.ViewHolder(binding.root) {
         
         fun bind(message: MessageItem) {
-            binding.tvMessage.text = message.content
+            // Use markdown rendering for message content
+            MarkdownRenderer.renderMarkdown(binding.tvMessage, message.content)
             
             // Format timestamp
             val dateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
