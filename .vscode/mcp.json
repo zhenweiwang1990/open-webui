@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "gbox-android": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "gbox-test-android-mcp-server"
+      ],
+      "env": {
+        "GBOX_API_KEY": "COPILOT_MCP_GBOX_API_KEY"
+      }
+    }
+  }
+}
