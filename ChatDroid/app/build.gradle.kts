@@ -108,4 +108,15 @@ dependencies {
 
     // Image loading
     implementation("io.coil-kt:coil-compose:2.4.0")
+    
+    // Room database for offline storage
+    implementation("androidx.room:room-runtime:2.5.0")
+    implementation("androidx.room:room-ktx:2.5.0")
+    // annotationProcessor("androidx.room:room-compiler:2.5.0") // Would need kapt
+    
+    // Work Manager for background tasks
+    implementation("androidx.work:work-runtime-ktx:2.8.1")
+    
+    // Notification support
+    implementation("androidx.core:core-ktx:1.16.0") // Already included but needed for notifications
 }
