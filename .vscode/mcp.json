@@ -1,6 +1,7 @@
 {
   "mcpServers": {
     "gbox-android": {
+      "type": "local",
       "command": "npx",
       "args": [
         "-y",
