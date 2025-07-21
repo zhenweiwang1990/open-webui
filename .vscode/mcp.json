@@ -1,6 +1,7 @@
 {
   "mcpServers": {
     "gbox-android": {
+      "type": "local",
       "command": "npx",
       "args": [
         "-y",
@@ -8,7 +9,8 @@
       ],
       "env": {
         "GBOX_API_KEY": "COPILOT_MCP_GBOX_API_KEY"
-      }
+      },
+      "tools": ["*"]
     }
   }
 }
