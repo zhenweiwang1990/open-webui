@@ -1,3 +1,5 @@
+@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
+
 package ai.gbox.chatdroid.ui.compose
 
 import androidx.compose.animation.animateContentSize
@@ -40,7 +42,8 @@ fun EnhancedChatInput(
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
-    val keyboardController = LocalSoftwareKeyboardController.current
+    // TODO: Add keyboard controller when experimental API is stable
+    // val keyboardController = LocalSoftwareKeyboardController.current
     val coroutineScope = rememberCoroutineScope()
     
     // Speech manager
@@ -145,7 +148,8 @@ fun EnhancedChatInput(
                         onSend = {
                             if (messageText.isNotBlank() && !isLoading) {
                                 onSendMessage(messageText)
-                                keyboardController?.hide()
+                                // TODO: Hide keyboard when API is stable
+                                // keyboardController?.hide()
                             }
                         }
                     ),
@@ -206,7 +210,8 @@ fun EnhancedChatInput(
                     onClick = {
                         if (messageText.isNotBlank()) {
                             onSendMessage(messageText)
-                            keyboardController?.hide()
+                            // TODO: Hide keyboard when API is stable
+                            // keyboardController?.hide()
                         }
                     },
                     enabled = messageText.isNotBlank() && !isLoading && !isListening,

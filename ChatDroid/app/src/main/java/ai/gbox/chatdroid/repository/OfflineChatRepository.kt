@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import ai.gbox.chatdroid.database.*
 import ai.gbox.chatdroid.network.*
+import ai.gbox.chatdroid.MessageItem
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

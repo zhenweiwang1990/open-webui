@@ -1,3 +1,5 @@
+@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
+
 package ai.gbox.chatdroid.ui.compose
 
 import androidx.compose.animation.core.*
@@ -46,7 +48,8 @@ fun ChatComposeScreen(
     var messageText by remember { mutableStateOf("") }
     val listState = rememberLazyListState()
     val coroutineScope = rememberCoroutineScope()
-    val keyboardController = LocalSoftwareKeyboardController.current
+    // TODO: Add keyboard controller when experimental API is stable
+    // val keyboardController = LocalSoftwareKeyboardController.current
     
     // Load chat when screen is first composed
     LaunchedEffect(chatId) {
@@ -162,7 +165,8 @@ fun ChatComposeScreen(
                             if (messageText.isNotBlank()) {
                                 viewModel.sendMessage(messageText)
                                 messageText = ""
-                                keyboardController?.hide()
+                                // TODO: Hide keyboard when API is stable
+                                // keyboardController?.hide()
                             }
                         }
                     ),
@@ -174,7 +178,8 @@ fun ChatComposeScreen(
                         if (messageText.isNotBlank()) {
                             viewModel.sendMessage(messageText)
                             messageText = ""
-                            keyboardController?.hide()
+                            // TODO: Hide keyboard when API is stable
+                            // keyboardController?.hide()
                         }
                     },
                     enabled = messageText.isNotBlank() && !loading

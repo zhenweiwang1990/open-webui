@@ -187,7 +187,7 @@ fun ImageGenerationScreen(
                         }
                         
                         // Generate button
-                        FilledButton(
+                        Button(
                             onClick = {
                                 if (prompt.isNotBlank()) {
                                     isGenerating = true

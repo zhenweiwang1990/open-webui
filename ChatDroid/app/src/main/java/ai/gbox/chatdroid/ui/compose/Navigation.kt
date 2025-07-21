@@ -83,8 +83,7 @@ fun MainScaffold(
         content = { paddingValues ->
             ChatDroidNavigation(
                 navController = navController,
-                availableModels = availableModels,
-                modifier = Modifier.padding(paddingValues)
+                availableModels = availableModels
             )
         }
     )

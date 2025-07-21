@@ -1,6 +1,7 @@
 package ai.gbox.chatdroid.network
 
 import android.util.Log
+import com.squareup.moshi.Json
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -114,7 +115,8 @@ data class ChatStreamRequest(
 
 data class ChatStreamResponse(
     val id: String,
-    val object: String,
+    @field:Json(name = "object")
+    val objectType: String,
     val created: Long,
     val model: String,
     val choices: List<StreamChoice>,

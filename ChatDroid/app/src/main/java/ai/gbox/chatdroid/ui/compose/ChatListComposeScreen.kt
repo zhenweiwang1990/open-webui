@@ -253,7 +253,7 @@ fun ChatListItem(
                     if (chat.pinned) {
                         Spacer(modifier = Modifier.width(8.dp))
                         Icon(
-                            Icons.Default.Push,
+                            Icons.Default.Add,
                             contentDescription = "Pinned",
                             modifier = Modifier.size(16.dp),
                             tint = MaterialTheme.colorScheme.primary
@@ -303,7 +303,7 @@ fun ChatListItem(
                             onPinClick()
                         },
                         leadingIcon = {
-                            Icon(Icons.Default.Push, contentDescription = null)
+                            Icon(Icons.Default.Add, contentDescription = null)
                         }
                     )
                     
